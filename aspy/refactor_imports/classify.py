@@ -33,7 +33,7 @@ def _due_to_pythonpath(module_path: str) -> bool:
 
 def _has_path_prefix(path: str, prefix: str) -> bool:
     # Both paths are assumed to be absolute.
-    def drive(p):
+    def drive(p: str) -> str:
         return os.path.splitdrive(p)[0].upper()
     if drive(path) == drive(prefix):
         return os.path.samefile(prefix, os.path.commonpath([path, prefix]))
