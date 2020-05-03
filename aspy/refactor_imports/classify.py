@@ -57,7 +57,7 @@ def _module_path_is_local_and_is_not_symlinked(
             # virtualenv inside the project directory.  We'd like to still
             # consider things in the virtualenv as third party.
             os.sep not in abspath[len(localpath) + 1:] and
-            os.path.samefile(abspath, realpath) and
+            os.path.normcase(abspath) == os.path.normcase(realpath) and
             os.path.exists(realpath)
         )
 
