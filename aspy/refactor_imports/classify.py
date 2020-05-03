@@ -31,7 +31,7 @@ def _due_to_pythonpath(module_path: str) -> bool:
     return mod_dir in _pythonpath_dirs()
 
 
-def _has_path_prefix(path: str, prefix: str) -> bool:
+def _has_path_prefix(path: str, *, prefix: str) -> bool:
     # Both paths are assumed to be absolute.
     def drive(p: str) -> str:
         return os.path.splitdrive(p)[0].upper()
