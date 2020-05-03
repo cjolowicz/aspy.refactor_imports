@@ -131,11 +131,7 @@ def test_application_directories(in_tmpdir, no_empty_path):
 
 
 @pytest.mark.xfail(
-    sys.platform.startswith('linux'),
-    reason='Expected fail for case-sensitive file system',
-)
-@pytest.mark.xfail(
-    sys.platform.startswith('darwin'),
+    sys.platform != 'win32',
     reason='Expected fail due to case-sensitive os.path.commonpath',
 )
 def test_application_directory_case(in_tmpdir, no_empty_path):
