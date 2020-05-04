@@ -40,7 +40,7 @@ def _samedrive(path1: str, path2: str) -> bool:
 def _has_path_prefix(path: str, *, prefix: str) -> bool:
     # Both paths are assumed to be absolute.
     return _samedrive(path, prefix) and os.path.samefile(
-        prefix, os.path.commonpath([path, prefix])
+        prefix, os.path.commonpath([path, prefix]),
     )
 
 
